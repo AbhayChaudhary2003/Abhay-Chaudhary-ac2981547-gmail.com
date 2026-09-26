@@ -30,7 +30,9 @@ function Register() {
                 formData
             );
 
-            console.log(res.data);
+            if (res.data.token) {
+                localStorage.setItem("token", res.data.token);
+            }
 
             alert("Registration successful");
 

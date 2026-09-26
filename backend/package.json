@@ -1,11 +1,14 @@
 {
   "name": "project-spotify-clone",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "TuneVault Backend API",
+  "main": "server.js",
   "scripts": {
-    "div": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +23,9 @@
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.9.5",
-    "multer": "^2.3.0",
+    "multer": "^2.3.0"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.14"
   }
 }

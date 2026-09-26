@@ -23,7 +23,9 @@ function Login() {
                 }
             );
 
-            console.log(res.data);
+            if (res.data.token) {
+                localStorage.setItem("token", res.data.token);
+            }
 
             alert("Login successful");
 
