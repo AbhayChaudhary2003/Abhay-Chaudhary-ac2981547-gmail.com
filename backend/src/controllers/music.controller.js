@@ -24,6 +24,12 @@ async function createMusic(req,res){
     const{title} = req.body;
     const file = req.file;
 
+        if (!file) {
+            return res.status(400).json({
+            message: "Music file is required"
+        })
+    }
+
 
         const result = await uploadFile(file.buffer.toString('base64'))
 
@@ -48,11 +54,24 @@ async function createMusic(req,res){
         return res.status(401).json({message:"unauthorized"})
     }
 
-    
-
-    
-    
-
 }
 
-module.exports = {createMusic}
+async function getMusic(req, res) {
+    try {
+        const music = await musicModel
+            .find()
+            .populate("artist", "username");
+
+        return res.status(200).json({
+            message: "music fetched successfully",
+            music
+        });
+
+    } catch (err) {
+        return res.status(500).json({
+            message: "failed to fetch music"
+        });
+    }
+}
+
+module.exports = {createMusic,getMusic}

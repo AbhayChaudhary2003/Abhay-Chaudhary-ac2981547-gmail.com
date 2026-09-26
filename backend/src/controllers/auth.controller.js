@@ -21,7 +21,7 @@ async function registerUser(req,res){
     const user = await userModel.create({
         username,
         email,
-        password,
+        password:hash,
         role
     })
 
@@ -67,7 +67,7 @@ async function loginUser(req,res){
 
     res.cookie("token",token)
     res.status(201).json({
-        message:"user registered",
+        message:"user login",
         user:{
             id:user._id,
             username:user.username,
