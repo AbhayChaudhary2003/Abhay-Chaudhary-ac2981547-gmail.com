@@ -12,7 +12,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import UploadMusic from "./pages/UploadMusic";
 import MusicFeed from "./pages/MusicFeed";
-
+import Logout from "./pages/Logout";
 function App() {
 
     return (
@@ -46,6 +46,11 @@ function App() {
                 <Route
                     path="/music"
                     element={<MusicFeed />}
+                />
+
+                <Route
+                    path="/logout"
+                    element={<Logout />}
                 />
 
             </Routes>

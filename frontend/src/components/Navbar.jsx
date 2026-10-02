@@ -30,6 +30,10 @@ function Navbar() {
                     Register
                 </Link>
 
+                <Link to="/logout">
+                    Logout
+                </Link>
+
             </div>
 
         </nav>

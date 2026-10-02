@@ -102,4 +102,28 @@ async function loginUser(req, res) {
     }
 }
 
-module.exports = { registerUser, loginUser };
+async function logoutUser(req, res) {
+    try {
+
+        res.clearCookie('token', {
+            httpOnly: true,
+            secure: isProduction,
+            sameSite: isProduction ? 'none' : 'lax'
+        });
+
+        return res.status(200).json({
+            message: 'Logout successful'//
+       });
+
+    } catch (error) {
+
+        console.error('Logout error:', error);
+
+        return res.status(500).json({
+            message: 'Logout failed'//
+        });
+    }
+}
+
+
+module.exports = { registerUser, loginUser, logoutUser };
